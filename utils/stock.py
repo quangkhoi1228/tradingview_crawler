@@ -8,7 +8,8 @@ def getStockList():
     for character in ALPHABET:
         listStockInfoByCharacter = getStockListByCharacter(character)
         listAllStockInfo.extend(listStockInfoByCharacter)
-        return listAllStockInfo
+
+    return listAllStockInfo
 
 
 def getStockListByCharacter(character):

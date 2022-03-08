@@ -10,7 +10,7 @@ def saveDataToJson(stockInfo, stockHistory):
     f = open(f"{JSON_PATH}{stockCode}.json", "w")
     f.write(json.dumps(stockHistory))
     f.close()
-    print(f"{stockCode}.json")
+    print(f"{stockCode}.json {len(stockHistory)} item")
 
 
 def getAllStockToJson():
