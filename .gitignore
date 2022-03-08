@@ -4,5 +4,7 @@
 out/csv/
 out/json/
 out/sql/
+out/postgresql
+out/excel
 .gitignore
 configs/__pycache__/config.cpython-38.pyc

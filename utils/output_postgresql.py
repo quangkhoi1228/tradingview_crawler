@@ -11,8 +11,8 @@ import psycopg2
 
 def saveDataToPosgresql(stockInfo, stockHistory):
     stockCode = stockInfo['symbol']
+    # stockHistory = [stockHistory[0]]
     query = ''
-    stockHistory = [stockHistory[0]]
     for stockHistoryItem in stockHistory:
         query = query + POSTGRESQL_INSERT_QUERY_BUILDER(
             stockCode, stockInfo['type'], datetime.utcfromtimestamp(stockHistoryItem['time']), stockHistoryItem['open'], stockHistoryItem['close'], stockHistoryItem['high'], stockHistoryItem['low'], stockHistoryItem['volume']) + ';'
@@ -24,6 +24,7 @@ def saveDataToPosgresql(stockInfo, stockHistory):
         password=POSTGRESQL_INFO["password"])
     cursor = connection.cursor()
     cursor.execute(query)
+    connection.commit()
     cursor.close()
     connection.close()
 

@@ -5,13 +5,13 @@ from tkinter import MULTIPLE
 
 DATA_URL = 'https://dchart-api.vndirect.com.vn/dchart'
 
-# ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-# 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-ALPHABET = ['A']
+ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+# ALPHABET = ['A']
 INTERVAL = "D"
 
-MULTIPLE_THREAD_CONNECTION = 20
-SLEEP_CRAWL_TIME = 1
+MULTIPLE_THREAD_CONNECTION = 15
+SLEEP_CRAWL_TIME = 1.5
 
 CSV_PATH = f'{os.getcwd()}/out/csv/'
 JSON_PATH = f'{os.getcwd()}/out/json/'
