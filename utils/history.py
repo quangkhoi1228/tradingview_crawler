@@ -18,6 +18,10 @@ def getStockHistory(stockCode):
     return result
 
 
+def getStockHistoryCurrentYear(stockCode):
+    return getStockHistoryInYear(stockCode, datetime.now().year)
+
+
 def getStockHistoryInYear(stockCode, year):
     startDay = round(datetime.timestamp(datetime(year, 1, 1)))
     endDay = round(datetime.timestamp(datetime(year, 12, 31)))
@@ -47,6 +51,8 @@ def getStockHistoryInYear(stockCode, year):
                 "time": time[index],
 
             })
+    except:
+        print(url)
     finally:
         # print(f"No data{stockCode} {year}")
         # print(f"crawl {stockCode} {year}: {len(historyList)} item")

@@ -1,15 +1,14 @@
 import json
 from configs.config import JSON_PATH
 from utils.crawler import getAllStockData
+from utils.helper import writeFile
 from utils.history import getStockHistory
 from utils.stock import getStockList
 
 
 def saveDataToJson(stockInfo, stockHistory):
     stockCode = stockInfo['symbol']
-    f = open(f"{JSON_PATH}{stockCode}.json", "w")
-    f.write(json.dumps(stockHistory))
-    f.close()
+    writeFile(f"{JSON_PATH}{stockCode}.json", json.dumps(stockHistory))
     print(f"{stockCode}.json {len(stockHistory)} item")
 
 

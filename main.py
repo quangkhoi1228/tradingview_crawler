@@ -1,8 +1,9 @@
 from utils.history import getStockHistory
-from utils.output_json import getAllStockToJson
-from utils.output_postgresql import getAllStockToPostgresql
+from utils.json import getAllStockToJson
+from utils.postgresql import getAllStockToPostgresql, getTodayAllStockToPostgresql
 from utils.stock import getStockList
 
-getAllStockToPostgresql()
+# getAllStockToPostgresql()
+getTodayAllStockToPostgresql()
 
 # getAllStockToJson()

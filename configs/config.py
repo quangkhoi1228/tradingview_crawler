@@ -6,7 +6,7 @@ from tkinter import MULTIPLE
 DATA_URL = 'https://dchart-api.vndirect.com.vn/dchart'
 
 ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+            'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 # ALPHABET = ['A']
 INTERVAL = "D"
 
@@ -23,11 +23,17 @@ POSTGRESQL_INFO = {
     "host": "10.78.28.51",
     "database": "dbpugna",
     "user": "gbsofts",
-    "password": ""
+    "password": "gbsoftsdev@000"
 }
+
+POSTGRESQl_TABLE = 'tbstockchart'
 
 
 def POSTGRESQL_INSERT_QUERY_BUILDER(stockCode, stockType, tradingDate, open, close, high, low, volume):
     user = 'system'
     date = datetime.now()
     return f'''INSERT INTO tbstockchart(symbolname, symboltype, tradingdate, "open", "close", high, low, volume, createddate, createduser, lastmodifieddate, lastmodifieduser) VALUES('{stockCode}', '{stockType}', '{tradingDate}', {open}, {close}, {high}, {low}, {volume},  '{date}','{user}',  '{date}','{user}')'''
+
+
+def POSTGRESQL_DELETE_YEAR_DATA_QUERY_BUILDER(stockCode, year):
+    return f"delete from tbstockchart where symbolname = '{stockCode}' and  tradingdate  > '{year-1}-01-01' and tradingdate  < '{year+1}-01-01'"
